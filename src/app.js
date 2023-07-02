@@ -131,3 +131,6 @@ bot.on('dice', (msg) => {
 bot.on('polling_error', (error) => {
   console.log(error);
 });
+window.onload(() => {
+  return 'estou online'
+})
