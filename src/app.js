@@ -4,6 +4,8 @@ require('dotenv').config()
 // Configurar o token do bot fornecido pelo BotFather
 const { TOKEN } = process.env;
 
+console.log(TOKEN)
+
 // Criar uma instância do bot
 const bot = new TelegramBot(TOKEN, { polling: true });
 // dardo
