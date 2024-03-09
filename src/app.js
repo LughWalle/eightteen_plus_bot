@@ -98,10 +98,12 @@ bot.on('message', (msg) => {
     const groupId = msg.chat.id;
     if (isObservingEmojis[groupId]) {
         const dice = msg.dice;
-        setTimeout(
-            () =>
-                bot.sendMessage(groupId, `@${msg.from.username}, ${handleResult(dice)}`),
-            2500
-        );
+        if (dice) {
+            setTimeout(
+                () =>
+                    bot.sendMessage(groupId, `@${msg.from.username}, ${handleResult(dice)}`),
+                2500
+            );
+        }
     }
 });
