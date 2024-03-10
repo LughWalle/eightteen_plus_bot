@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 require('dotenv').config();
 
-const TOKEN = '6323370361:AAFlBT8HyUoc1RzQwsytPYe45lAhYSOjT_E';
+const { TOKEN } = process.env;
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 
@@ -91,10 +91,10 @@ bot.onText(/\/(playgame|init)/, (msg) => {
 bot.onText(/\/stopgame/, (msg) => {
     groupId = msg.chat.id;
     delete isObservingEmojis[groupId];
-    bot.sendMessage(groupId, 'Agora observando emojis!');
+    bot.sendMessage(groupId, 'Fim de jogo!!');
 });
 
-bot.on('message', (msg) => {
+bot.on('dice', (msg) => {
     const groupId = msg.chat.id;
     if (isObservingEmojis[groupId]) {
         const dice = msg.dice;
@@ -103,7 +103,8 @@ bot.on('message', (msg) => {
                 () =>
                     bot.sendMessage(groupId, `@${msg.from.username}, ${handleResult(dice)}`),
                 2500
-            );
+            ); 
         }
+        
     }
 });
