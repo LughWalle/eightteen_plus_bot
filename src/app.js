@@ -96,7 +96,7 @@ const handleDiceEvent = async (msg) => {
     if (!msg.entities) {
       if (msg.dice) {
         setTimeout(
-          () => bot.sendMessage(groupId, `@${user.username}, ${handleResult(msg)}`),
+          () => bot.sendMessage(groupId, `@${user.username || user.first_name}, ${handleResult(msg)}`),
           2500
         );
       }
@@ -105,7 +105,7 @@ const handleDiceEvent = async (msg) => {
       if (dice) {
         dice.from = user;
         setTimeout(
-          () => bot.sendMessage(groupId, `@${user.username}, ${handleResult(dice)}`),
+          () => bot.sendMessage(groupId, `@${user.username || user.first_name}, ${handleResult(dice)}`),
           2500
         );
       }
