@@ -183,8 +183,6 @@ const emojiCommands = {
 };
 
 // ações bot
-
-
 // callback de botões
 
 bot.on('callback_query', async (query) => {
