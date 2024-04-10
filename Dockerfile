@@ -2,7 +2,7 @@
 FROM node:18
 
 # Defina o diretório de trabalho
-WORKDIR /app
+WORKDIR /
 
 # Copie os arquivos do projeto para o diretório de trabalho
 COPY..
